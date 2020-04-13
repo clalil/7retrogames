@@ -51,17 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ]
 
+  cardArray.sort(() => 0.5 - Math.random())
+
   const gameBoard = document.querySelector('.grid')
-  const chosenCards = []
-  const chosenCardId = []
-  const cardsMatched = []
+  const resultDisplay = document.querySelector('#result')
+  const resetBtn = document.querySelector('#reset')
+  let chosenCards = []
+  let chosenCardId = []
+  let cardsMatched = []
 
   function createGameBoard() {
     for (let i = 0; i < cardArray.length; i++) {
       const card = document.createElement('img')
       card.setAttribute('src', 'img/blank.jpg')
       card.setAttribute('data-id', i)
-      //card.addEventListener('click', flipCard())
+      card.addEventListener('click', flipCard)
       gameBoard.appendChild(card)
     }
   }
@@ -76,16 +80,21 @@ document.addEventListener('DOMContentLoaded', () => {
       cards[optionTwo].setAttribute('src', 'img/white.png')
       cardsMatched.push(chosenCards)
     } else {
-      cards[optionOne].setAttribute('src', 'img/blank.png')
-      cards[optionTwo].setAttribute('src', 'img/blank.png')
+      cards[optionOne].setAttribute('src', 'img/blank.jpg')
+      cards[optionTwo].setAttribute('src', 'img/blank.jpg')
       alert('Sorry, there\'s no match! Try again!')
     }
     chosenCards = []
     chosenCardId = []
+    resultDisplay.textContent = cardsMatched.length
+    if (cardsMatched.length === cardArray.length/2) {
+      resultDisplay.textContent = 'Congratulations, you\'ve matched all the cards!'
+      resetBtn.style.display = 'block'
+    }
   }
 
   function flipCard() {
-    const cardId = this.getAttribyte('data-id')
+    const cardId = this.getAttribute('data-id')
     chosenCards.push(cardArray[cardId].name)
     chosenCardId.push(cardId)
     this.setAttribute('src', cardArray[cardId].img)
@@ -95,4 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   createGameBoard()
+
+  resetBtn.addEventListener('click', () => {window.location.reload(true)})
 })
