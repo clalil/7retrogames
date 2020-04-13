@@ -74,7 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('img')
     const optionOne = chosenCardId[0]
     const optionTwo = chosenCardId[1]
-    if (chosenCards[0] === chosenCards[1]) {
+    if (optionOne === optionTwo) {
+      cards[optionOne].setAttribute('src', 'img/blank.jpg')
+      alert('Please choose a different second card!')
+    }
+    else if (chosenCards[0] === chosenCards[1]) {
       alert('You\'ve found a match!')
       cards[optionOne].setAttribute('src', 'img/white.png')
       cards[optionTwo].setAttribute('src', 'img/white.png')
