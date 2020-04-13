@@ -1,3 +1,21 @@
+body {
+  font-family: Georgia, sans-serif;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+h3 {
+  text-align: left;
+  padding: 0.5rem;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -6,5 +24,15 @@
 }
 
 #reset {
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 8px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  -webkit-box-shadow: 1px 0px 8px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 1px 0px 8px 1px rgba(0,0,0,0.2);
+  box-shadow: 1px 0px 8px 1px rgba(0,0,0,0.2);
+  margin-left: 0.5rem;
   display: none;
 }
