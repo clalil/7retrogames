@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cards[optionOne].setAttribute('src', 'img/white.png')
       cards[optionTwo].setAttribute('src', 'img/white.png')
       cardsMatched.push(chosenCards)
+      cards[optionOne].removeEventListener('click', flipCard)
+      cards[optionTwo].removeEventListener('click', flipCard)
     } else {
       cards[optionOne].setAttribute('src', 'img/blank.jpg')
       cards[optionTwo].setAttribute('src', 'img/blank.jpg')
