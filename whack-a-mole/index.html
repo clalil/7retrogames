@@ -7,22 +7,26 @@
   </head>
   <body>
     <h1>Whack a mole!</h1>
-    <span>Your score:</span>
-    <span id="score">0</span>
+    <div class="center">
+      <span>Your score:</span>
+      <span id="score">0</span>
+  
+      <span>Seconds left:</span>
+      <span id="time-left">60</span>
+    </div>
 
-    <span>Seconds left:</span>
-    <span id="time-left">60</span>
-
-    <div class="grid">
-      <div class="square" id="1"></div>
-      <div class="square" id="2"></div>
-      <div class="square" id="3"></div>
-      <div class="square" id="4"></div>
-      <div class="square" id="5"></div>
-      <div class="square" id="6"></div>
-      <div class="square" id="7"></div>
-      <div class="square" id="8"></div>
-      <div class="square" id="9"></div>
+    <div class="wrapper">
+      <div class="grid">
+        <div class="square" id="1"></div>
+        <div class="square mole" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+        <div class="square" id="9"></div>
+      </div>
     </div>
 
     <script src="app.js" charset="utf-8"></script>
