@@ -9,7 +9,7 @@ function randomSquare() {
   square.forEach(className => {
     className.classList.remove('mole');
   })
-  let randomMolePosition = square[Math.floow(Math.random() * 9)];
+  let randomMolePosition = square[Math.floor(Math.random() * 9)];
   randomMolePosition.classList.add('mole');
 
   hitMolePosition = randomMolePosition.id
@@ -24,4 +24,9 @@ square.forEach(id => {
   })
 })
 
+function moveMole() {
+  let timerId = null;
+  timerId = setInterval(randomSquare, 1000)
+}
 
+moveMole();
