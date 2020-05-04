@@ -37,7 +37,7 @@ function countDown() {
   timeLeft.textContent = currentTime
   if (currentTime === 0) {
     clearInterval(timerId);
-    alert("Time's up! Your final score is" + result)
+    alert("Time's up! Your final score is " + result)
   }
 }
 
