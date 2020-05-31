@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const squares = document.querySelectorAll('.grid div');
   const result = document.querySelector('#result');
   const displayCurrentPlayer = document.querySelector('#current-player');
-  const resetGame = document.querySelector('#retry');
+  const resetBtn = document.querySelector('#reset');
 
   let currentPlayer = 1;
 
@@ -88,4 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   squares.forEach(square => square.addEventListener('click', checkBoard));
+  resetBtn.addEventListener('click', () => {window.location.reload(true)})
 })
