@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+  let container = document.getElementsByClassName("grid")[0];
+
+  [...Array(42)].forEach((_,div) => {
+    div = document.createElement('div');
+    container.appendChild(div);
+  });
+
+  [...Array(7)].forEach((_,takenDiv) => {
+    takenDiv = document.createElement('div');
+    takenDiv.classList.add('taken')
+    container.appendChild(takenDiv);
+});
+
   const squares = document.querySelectorAll('.grid div');
   const result = document.querySelector('#result');
   const displayCurrentPlayer = document.querySelector('#current-player');
@@ -69,5 +82,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  squares.forEach(square => square.addEventListener('click', checkBoard))
+  squares.forEach(square => square.addEventListener('click', checkBoard));
 })
