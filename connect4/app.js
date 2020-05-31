@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const squares = document.querySelectorAll('.grid div');
   const result = document.querySelector('#result');
   const displayCurrentPlayer = document.querySelector('#current-player');
+  const resetGame = document.querySelector('#retry');
 
   let currentPlayer = 1;
 
@@ -73,11 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
           square3.classList.contains('player-one') &&
           square4.classList.contains('player-one')) {
             result.innerHTML = 'Player One Wins!'
+            result.style.color = 'red'
+            resetGame.style.display = 'block'
         } else if (square1.classList.contains('player-two') &&
         square2.classList.contains('player-two') &&
         square3.classList.contains('player-two') &&
         square4.classList.contains('player-two')) {
           result.innerHTML = 'Player Two Wins!'
+          result.style.color = 'blue'
+          resetGame.style.display = 'block'
       }
     }
   }
