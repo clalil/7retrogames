@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       squares[i].onclick = function() {
         if(squares[i + 7].classList.contains('taken')) {
-          if (currentPlayer === 1) {
+          if (squares[i].classList.contains('taken')) {
+            alert('You cannot go here!')
+          }
+          else if (currentPlayer === 1) {
             squares[i].classList.add('taken');
             squares[i].classList.add('player-one');
 
@@ -25,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayCurrentPlayer.innerHTML = currentPlayer;
           } else {
             //if the square below your current isn't taken, you cannot choose it
-            alert('you cannot go here')
+            alert('You cannot go here!')
           }
         }
       }
