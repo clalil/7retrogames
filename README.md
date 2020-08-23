@@ -10,7 +10,7 @@ Just for the fun of it.
 * Memory
 * Whack-a-mole
 * Connect4
-* Snake (#todo)
+* Snake
 * Space invaders (#todo)
 * Frogger (#todo)
 * Tetris (#todo)
