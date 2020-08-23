@@ -11,8 +11,31 @@
 	height: 20px;
 }
 .snake {
-	background-color: blue;
+	border-radius: 3px;
+	background-color: green;
 }
 .apple {
+	position: relative;
+	border-radius: 50%;
 	background-color: red;
+}
+.apple::before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: -5px;
+	left: 7px;
+	width: 5px;
+	height: 10px;
+	background-color: brown;
+}
+.apple::after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: -3px;
+	width: 10px;
+	height: 10px;
+	border-radius: 8px/4px;
+	background-color: green;
 }
