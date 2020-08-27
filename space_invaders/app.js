@@ -10,29 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
   let invaderId
 
   const alienInvaders = [
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-    15,16,17,18,19,20,21,22,23,24,
-    30,31,32,33,34,35,36,37,38,39
-  ]
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+      15,16,17,18,19,20,21,22,23,24,
+      30,31,32,33,34,35,36,37,38,39
+    ]
 
-  alienInvaders.forEach(invader => squares[currentInvaderIndex + invader].classList.add('invader'))
-  
+  alienInvaders.forEach( invader => squares[currentInvaderIndex + invader].classList.add('invader'))
+
   squares[currentShooterIndex].classList.add('shooter')
 
   function moveShooter(e) {
     squares[currentShooterIndex].classList.remove('shooter')
-
     switch(e.keyCode) {
       case 37:
-        if(currentShooterIndex % width !== 0) currentShooterIndex -=1
+        if(currentShooterIndex % width !== 0) currentShooterIndex -= 1
         break
       case 39:
-        if(currentShooterIndex % width < width -1) currentShooterIndex +=1
+        if(currentShooterIndex % width < width - 1) currentShooterIndex += 1
         break
     }
     squares[currentShooterIndex].classList.add('shooter')
   }
-
   document.addEventListener('keydown', moveShooter)
 
   function moveInvaders() {
@@ -42,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if((leftEdge && direction === -1) || (rightEdge && direction === 1)){
         direction = width
       } else if (direction === width) {
-      leftEdge ? direction = 1 : direction = -1
+        leftEdge ? direction = 1 : direction = -1
       }
       for (let i = 0; i <= alienInvaders.length - 1; i++) {
         squares[alienInvaders[i]].classList.remove('invader')
@@ -69,13 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    //declare a win
     if(alienInvadersTakenDown.length === alienInvaders.length) {
       resultDisplay.textContent = 'You Win'
       clearInterval(invaderId)
     }
   }
-
   invaderId = setInterval(moveInvaders, 500)
 
   function shoot(e) {
@@ -107,18 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    keyup = spacebar
-    document.addEventListener('keyup', e => {
-      if(e.keyCode === 32) {
-        laserId = setInterval(moveLaser, 100)
-      }
-    })
-    // switch(e.keyCode) {
-    //   case 32:
-    //     laserId = setInterval(moveLaser, 100)
-    //     break
-    // }
 
-    document.addEventListener('keyup', shoot)
+    switch(e.keyCode) {
+      case 32:
+        laserId = setInterval(moveLaser, 100)
+        break
+    }
   }
+
+  document.addEventListener('keyup', shoot)
 })
