@@ -52,8 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       for (let i = 0; i <= alienInvaders.length - 1; i++) {
         squares[alienInvaders[i]].classList.remove('invader')
-      }
-      for (let i = 0; i <= alienInvaders.length - 1; i++) {
         alienInvaders[i] += direction
       }
       for (let i = 0; i <= alienInvaders.length - 1; i++) {
