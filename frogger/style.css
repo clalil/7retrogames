@@ -10,3 +10,12 @@
 	width: 20px;
 	height: 20px;
 }
+.ending-block {
+	background-color: red;
+}
+.starting-block {
+	background-color: blue;
+}
+.frog {
+	background-color: green;
+}
