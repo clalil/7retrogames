@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementsByClassName("grid")[0];
+
+  [...Array(225)].forEach((_,div) => {
+    div = document.createElement('div');
+    container.appendChild(div);
+  })
+
+  const resetBtn = document.getElementById('retry')
   const squares = document.querySelectorAll('.grid div')
   const resultDisplay = document.querySelector('#result')
   let width = 15
@@ -57,18 +65,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if(squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
       resultDisplay.textContent = 'Game Over'
       squares[currentShooterIndex].classList.add('boom')
+      squares[currentShooterIndex].classList.remove('shooter')
+      resetBtn.classList.remove('hidden')
       clearInterval(invaderId)
     }
 
     for (let i = 0; i <= alienInvaders.length - 1; i++){
       if(alienInvaders[i] > (squares.length - (width -1))){
         resultDisplay.textContent = 'Game Over'
+        resetBtn.classList.remove('hidden')
         clearInterval(invaderId)
       }
     }
 
     if(alienInvadersTakenDown.length === alienInvaders.length) {
       resultDisplay.textContent = 'You Win'
+      resetBtn.classList.remove('hidden')
       clearInterval(invaderId)
     }
   }
@@ -103,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-
     switch(e.keyCode) {
       case 32:
         laserId = setInterval(moveLaser, 100)
@@ -112,4 +123,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('keyup', shoot)
+  resetBtn.addEventListener('click', () => {window.location.reload(true)})
 })
