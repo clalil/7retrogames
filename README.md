@@ -11,7 +11,7 @@ Just for the fun of it.
 * Whack-a-mole
 * Connect4
 * Snake
-* Space invaders (#todo)
+* Space invaders
 * Frogger (#todo)
 * Tetris (#todo)
 
