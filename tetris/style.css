@@ -9,3 +9,9 @@ div {
 	width: 20px;
 	height: 20px;
 }
+.block {
+	background-color: blue;
+}
+.block-2 {
+	background-color: purple;
+}
