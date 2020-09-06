@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementsByClassName('grid')[0];
-  [...Array(200)].forEach((_, div) => {
+  [...Array(190)].forEach((_, div) => {
     div = document.createElement('div')
     container.appendChild(div)
-  })
+  });
+
+  [...Array(10)].forEach((_, div) => {
+    div = document.createElement('div')
+    div.setAttribute('class', 'block3')
+    container.appendChild(div)
+  });
 
   const grid = document.querySelector('.grid')
   let squares = Array.from(grid.querySelectorAll('div'))

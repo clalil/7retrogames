@@ -14,6 +14,9 @@ div {
 .block {
 	background-color: blue;
 }
-.block-2 {
+.block2 {
 	background-color: purple;
+}
+.block3 {
+	background-color: green;
 }
