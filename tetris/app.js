@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   const grid = document.querySelector('.grid')
+  const displaySquares = document.querySelector('.previous-grid div')
   let squares = Array.from(grid.querySelectorAll('div'))
   const width = 10
   const height = 20
@@ -132,4 +133,16 @@ document.addEventListener('DOMContentLoaded', () => {
     current = theTetrominoes[random][currentRotation]
     draw()
   }
+
+  //show previous teotromino
+  const displayWidth = 4
+  const displayIndex = 0
+
+  const smallTetrominoes = [
+    [1, displayWidth + 1, displayWidth * 2 + 1, 2], /* lTetromino */
+    [0, displayWidth, displayWidth + 1, displayWidth * 2 + 1], /* zTetromino */
+    [1, displayWidth, displayWidth + 1, displayWidth + 2], /* tTetromino */
+    [0, 1, displayWidth, displayWidth + 1], /* oTetromino */
+    [1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1] /* iTetromino */
+  ]
 })
