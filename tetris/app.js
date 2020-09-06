@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementsByClassName('grid')[0];
+  const prevContainer = document.getElementsByClassName('previous-grid')[0];
+
   [...Array(190)].forEach((_, div) => {
     div = document.createElement('div')
     container.appendChild(div)
@@ -10,6 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     div.setAttribute('class', 'block3')
     container.appendChild(div)
   });
+
+  [...Array(16)].forEach((_, div) => {
+    div = document.createElement('div')
+    prevContainer.appendChild(div)
+  })
 
   const grid = document.querySelector('.grid')
   let squares = Array.from(grid.querySelectorAll('div'))

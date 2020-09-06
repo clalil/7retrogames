@@ -6,6 +6,19 @@
 
 	flex-wrap: wrap;
 }
+.previous-grid {
+	display: flex;
+	width: 80px;
+	height: 80px;
+
+	flex-wrap: wrap;
+}
+.previous-shape {
+	width: 80px;
+	height: 80px;
+	margin-bottom: 10px;
+	border: 1px solid pink;
+}
 div {
 	width: 20px;
 	height: 20px;
