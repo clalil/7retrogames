@@ -11,7 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const height = 20
   let currentPosition = 4
 
-  //The terominos
+  function controlMovement() {
+    if(e.keyCode === 39) {
+      moveRight
+    } else if (e.keyCode === 38) {
+      rotate()
+    } else if (e.keyCode === 37) {
+      moveLeft()
+    } else if (e.keyCode === 40) {
+      moveDown()
+    }
+  }
+
+  document.addEventListener('keyup', controlMovement)
 
   //The Tetrominoes
   const lTetromino = [
@@ -108,4 +120,5 @@ document.addEventListener('DOMContentLoaded', () => {
     draw()
   }
 
+  
 })
