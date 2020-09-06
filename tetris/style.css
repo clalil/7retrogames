@@ -2,12 +2,14 @@
 	display: flex;
 	width: 200px;
 	height: 400px;
+	background-color: blue;
 
 	flex-wrap: wrap;
 }
 div {
 	width: 20px;
 	height: 20px;
+	background-color: yellow;
 }
 .block {
 	background-color: blue;
