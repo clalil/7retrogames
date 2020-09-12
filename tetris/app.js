@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     unDraw()
     currentPosition = currentPosition += width
     draw()
-    //freeze()
+    freeze()
   }
 
   //move left and prevent collision with shapes moving left
