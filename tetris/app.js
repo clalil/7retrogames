@@ -18,12 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     prevContainer.appendChild(div)
   })
 
+  const startBtn = document.querySelector('button')
   const grid = document.querySelector('.grid')
   const displaySquares = document.querySelectorAll('.previous-grid div')
   let squares = Array.from(grid.querySelectorAll('div'))
   const width = 10
   const height = 20
   let currentPosition = 4
+  let timerId
 
   function controlMovement(e) {
     if(e.keyCode === 39) {
@@ -170,5 +172,17 @@ document.addEventListener('DOMContentLoaded', () => {
       displayShape()
     }
   }
+
+  startBtn.addEventListener('click', () => {
+    if(timerId) {
+      clearInterval(timerId)
+      timerId = null
+    } else {
+      draw()
+      timerId = setInterval(moveDown, 1000)
+      nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+      displayShape()
+    }
+  })
 
 })
