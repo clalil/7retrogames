@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 10
   const height = 20
   let currentPosition = 4
+  let currentRotation = 0
   let timerId
 
   function controlMovement(e) {
@@ -80,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
 
   let random = Math.floor(Math.random()*theTetrominoes.length)
-  let currentRotation = 0
   let current = theTetrominoes[random][currentRotation]
 
   //draw the shape
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     unDraw()
     const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1)
     if(!isAtRightEdge) currentPosition += 1
-    if(current.some(index => squares[currentPosition + index].classList.contains('block'))) {
+    if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
       currentPosition -= 1
     }
     draw()
