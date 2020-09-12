@@ -156,5 +156,19 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  displayShape()
+  function freeze() {
+    if(current.some(index => squares[currentPosition + index + width].classList.contains('block3'))
+    || squares[currentPosition + index + width].classList.contains('block2')) {
+      current.forEach(index => squares[index + currentPosition].classList.add('block2'))
+
+      random = nextRandom
+      nextRandom = Math.floor(Math.random() * theTetrominoes.length)
+      current = theTetrominoes[random][currentRotation]
+      currentPosition = 4
+      draw()
+      undraw()
+      displayShape()
+    }
+  }
+
 })
