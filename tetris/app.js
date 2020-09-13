@@ -19,11 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const startBtn = document.querySelector('button')
+  const scoreDisplay = document.querySelector('.score-display')
+  const linesDisplay = document.querySelector('.lines-display')
   const grid = document.querySelector('.grid')
   let squares = Array.from(grid.querySelectorAll('div'))
   const width = 10
   const height = 20
   let currentPosition = 4
+  let currentIndex = 0
+  let score = 0
+  let lines = 0
   let timerId
 
   //The Tetrominoes
@@ -167,8 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
       current = theTetrominoes[random][currentRotation]
       currentPosition = 4
       draw()
-      undraw()
+      unDraw()
       displayShape()
+      gameOver()
+      addScore()
     }
   }
 
@@ -183,5 +190,36 @@ document.addEventListener('DOMContentLoaded', () => {
       displayShape()
     }
   })
+
+  function gameOver() {
+    if(current.some(index => squares[currentPosition + index].classList.contains('block'))) {
+      scoreDisplay.innerHTML = "Game Over"
+      clearInterval(timerId)
+    }
+  }
+
+  function addScore() {
+    for(currentIndex = 0; currentIndex < 199; currentIndex += width) {
+      let row = [currentIndex, currentIndex+1, currentIndex+2,
+        currentIndex+3,currentIndex+4,currentIndex+5,currentIndex+6,
+        currentIndex+7,currentIndex+8,currentIndex+9]
+      
+      if(row.every(index => squares[index].classList.contains('block2'))) {
+        score += 10
+        lines += 1
+        scoreDisplay.innerHTML = score
+        linesDisplay.innerHTML = lines
+
+        row.forEach(index => {
+          //returns undefined and doesnt add?
+          squares[index].classList.remove('block2') || squares[index.classList].remove('block')
+        })
+
+        const squaresRemoved = squares.splice(currentIndex, width)
+        squares = squaresRemoved.concat(squares)
+        squares.forEach(cellBlock => grid.appendChild(cellBlock))
+      }
+    }
+  }
 
 })
