@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     freeze()
   }
 
-  //move left and prevent collision with shapes moving left
+  //prevent collision with other pieces
   function moveRight() {
     unDraw()
     const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1)
@@ -211,8 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         linesDisplay.innerHTML = lines
 
         row.forEach(index => {
-          //returns undefined and doesnt add?
-          squares[index].classList.remove('block2') || squares[index.classList].remove('block')
+          squares[index].classList.remove('block2') || squares[index].classList.remove('block')
         })
 
         const squaresRemoved = squares.splice(currentIndex, width)
