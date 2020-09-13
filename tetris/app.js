@@ -16,31 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
   [...Array(16)].forEach((_, div) => {
     div = document.createElement('div')
     prevContainer.appendChild(div)
-  })
+  });
 
   const startBtn = document.querySelector('button')
   const grid = document.querySelector('.grid')
-  const displaySquares = document.querySelectorAll('.previous-grid div')
   let squares = Array.from(grid.querySelectorAll('div'))
   const width = 10
   const height = 20
   let currentPosition = 4
-  let currentRotation = 0
   let timerId
-
-  function controlMovement(e) {
-    if(e.keyCode === 39) {
-      moveRight()
-    } else if (e.keyCode === 38) {
-      rotate()
-    } else if (e.keyCode === 37) {
-      moveLeft()
-    } else if (e.keyCode === 40) {
-      moveDown()
-    }
-  }
-
-  document.addEventListener('keyup', controlMovement)
 
   //The Tetrominoes
   const lTetromino = [
@@ -78,10 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
     [width, width + 1, width + 2, width + 3]
   ]
 
-  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
-
+  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino] 
   let random = Math.floor(Math.random()*theTetrominoes.length)
-  let current = theTetrominoes[random][currentRotation]
+  let currentRotation = 0
+  let current = theTetrominoes[random][currentRotation] 
+
+  function controlMovement(e) {
+    if(e.keyCode === 39) {
+      moveRight()
+    } else if (e.keyCode === 38) {
+      rotate()
+    } else if (e.keyCode === 37) {
+      moveLeft()
+    } else if (e.keyCode === 40) {
+      moveDown()
+    }
+  }
+
+  document.addEventListener('keyup', controlMovement)
 
   //draw the shape
   function draw() {
@@ -137,8 +135,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //show previous teotromino
+  const displaySquares = document.querySelectorAll('.previous-grid div')
   const displayWidth = 4
-  const displayIndex = 0
+  let displayIndex = 0
   let nextRandom = 0
 
   const smallTetrominoes = [
@@ -159,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function freeze() {
-    if(current.some(index => squares[currentPosition + index + width].classList.contains('block3'))
-    || squares[currentPosition + index + width].classList.contains('block2')) {
+    if(current.some(index => squares[currentPosition + index + width].classList.contains('block3')
+    || squares[currentPosition + index + width].classList.contains('block2'))) {
       current.forEach(index => squares[index + currentPosition].classList.add('block2'))
 
       random = nextRandom
