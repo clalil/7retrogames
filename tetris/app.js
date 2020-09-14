@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const linesDisplay = document.querySelector('.lines-display')
   const grid = document.querySelector('.grid')
   let squares = Array.from(grid.querySelectorAll('div'))
+  const colors = ['#89E38E', '#89D1E3', '#9E89E3', '#E389D8', '#F4F40C']
   const width = 10
   const height = 20
   let currentPosition = 4
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('block')
+      squares[currentPosition + index].style.backgroundColor = colors[random]
     })
   }
 
@@ -97,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function unDraw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.remove('block')
+      squares[currentPosition + index].style.backgroundColor = '#fff'
     })
   }
 
@@ -156,9 +159,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayShape() {
     displaySquares.forEach(square => {
       square.classList.remove('block')
+      square.style.backgroundColor = '#fff'
     })
     smallTetrominoes[nextRandom].forEach(index => {
       displaySquares[displayIndex + index].classList.add('block')
+      displaySquares[displayIndex + index].style.backgroundColor = colors[random]
     })
   }
 
