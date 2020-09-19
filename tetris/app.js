@@ -183,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
       addScore()
     }
   }
+  freeze()
 
   startBtn.addEventListener('click', () => {
     if(timerId) {
