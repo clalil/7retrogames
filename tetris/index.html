@@ -8,19 +8,22 @@
   <title>Tetris</title>
 </head>
 <body>
-
-  <button>Start</button>
-  <div class="game-board">
-    <div class="previous-shape">
-      <div class="score">
-        <h3><span class="score-display">0</span></h3>
-        <h3><span class="lines-display">0</span></h3>    
+  <h1>Tetris</h1>
+    <div class="wrapper">
+        <div class="game">
+          <div class="grid"></div>
+        </div>
+        <div class="game-board">
+          <div class="previous-shape">
+            <div class="previous-grid"></div>
+          </div>
+          <div class="score">
+            <p>Score: <span class="score-display">0</span></p>
+            <p>Lines: <span class="lines-display">0</span></p>    
+          </div>
+          <button>Start/Pause</button>
+        </div>
       </div>
-      <div class="previous-grid"></div>
     </div>
-    <div class="game">
-      <div class="grid"></div>
-    </div>
-  </div>
 </body>
 </html>

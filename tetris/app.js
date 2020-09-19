@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   [...Array(10)].forEach((_, div) => {
     div = document.createElement('div')
     div.setAttribute('class', 'block3')
-    div.style.backgroundColor = '#E38D89'
+    div.style.backgroundColor = '#f081bb'
     container.appendChild(div)
   });
 
