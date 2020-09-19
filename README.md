@@ -12,8 +12,10 @@ Just for the fun of it.
 * Connect4
 * Snake
 * Space invaders
-* Frogger (#todo)
-* Tetris (#todo)
+* Frogger
+* Tetris
+
+<img src="./images/tetris.png" alt="Image of app" width="40%">
 
 ### Acknowledgement
 Credit goes to FreeCodeCamp.org and Ania Kubow for amazing tutorials.
