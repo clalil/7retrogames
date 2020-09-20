@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cardArray.sort(() => 0.5 - Math.random())
 
   const gameBoard = document.querySelector('.grid')
+  const alertMsg = document.getElementById('message')
   const resultDisplay = document.querySelector('#result')
   const resetBtn = document.querySelector('button')
   let chosenCards = []
@@ -38,10 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (optionOne === optionTwo) {
       cards[optionOne].classList.remove(cards[optionOne].className)
       cards[optionOne].classList.add('blank-card')
-      alert('Please choose a different second card!')
+      alertMsg.innerHTML = 'Please choose a different second card!'
+      alertMsg.style.visibility = 'visible'
     }
     else if (chosenCards[0] === chosenCards[1]) {
-      alert('You\'ve found a match!')
+      alertMsg.innerHTML = 'You\'ve found a match!'
+      alertMsg.style.visibility = 'visible'
+
       cards[optionOne].classList.add('matched-card')
       cards[optionOne].classList.remove('blank-card')
       cards[optionTwo].classList.add('matched-card')
@@ -55,7 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cards[optionOne].classList.add('blank-card')
       cards[optionTwo].classList.remove(cards[optionTwo].className)
       cards[optionTwo].classList.add('blank-card')
-      alert('Sorry, there\'s no match! Try again!')
+
+      alertMsg.innerHTML = 'Sorry, there\'s no match! Try again!'
+      alertMsg.style.visibility = 'visible'
     }
     chosenCards = []
     chosenCardId = []
@@ -68,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function flipCard() {
+    alertMsg.style.visibility = 'hidden'
     const cardId = this.getAttribute('data-id')
 
     chosenCards.push(cardArray[cardId].name)
