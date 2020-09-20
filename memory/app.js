@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const gameBoard = document.querySelector('.grid')
   const resultDisplay = document.querySelector('#result')
-  const resetBtn = document.querySelector('#reset')
+  const resetBtn = document.querySelector('button')
   let chosenCards = []
   let chosenCardId = []
   let cardsMatched = []
