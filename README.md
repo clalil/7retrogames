@@ -13,9 +13,10 @@ Just for the fun of it.
 * Snake
 * Space invaders
 * Frogger
-* Tetris
+* Tetris  
 
-<img src="./images/tetris.png" alt="Image of app" width="40%">
+<img src="./images/memory.png" alt="Image of Memory Game" width="40%">
+<img src="./images/tetris.png" alt="Image of Tetris Game" width="40%">
 
 ### Acknowledgement
-Credit goes to FreeCodeCamp.org and Ania Kubow for amazing tutorials.
+Credit goes to FreeCodeCamp.org and Ania Kubow for amazing game tutorials.
