@@ -1,3 +1,14 @@
+const container = document.getElementsByClassName('grid')[0];
+let int = 1;
+
+[...Array(9)].forEach((_, div) => {
+  console.log(typeof div)
+  div = document.createElement('div')
+  div.classList.add('square');
+  div.setAttribute('id', int++)
+  container.appendChild(div)
+})
+
 const square = document.querySelectorAll('.square');
 const mole = document.querySelector('.mole');
 const timeLeft = document.querySelector('#time-left');
@@ -10,6 +21,7 @@ function randomSquare() {
   square.forEach(className => {
     className.classList.remove('mole');
   })
+
   let randomMolePosition = square[Math.floor(Math.random() * 9)];
   randomMolePosition.classList.add('mole');
 
