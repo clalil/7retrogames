@@ -16,6 +16,7 @@ Just for the fun of it.
 * Tetris  
 
 <img src="./images/memory.png" alt="Image of Memory Game" width="40%">
+<img src="./images/mole.png" alt="Image of Whack-a-mole" width="40%">
 <img src="./images/tetris.png" alt="Image of Tetris Game" width="40%">
 
 ### Acknowledgement
