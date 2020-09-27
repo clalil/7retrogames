@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     container.appendChild(takenDiv);
 });
 
-  const squares = document.querySelectorAll('.grid div');
-  const result = document.querySelector('#result');
-  const displayCurrentPlayer = document.querySelector('#current-player');
-  const resetBtn = document.querySelector('#reset');
+  const squares = document.querySelectorAll('.grid div')
+  const result = document.querySelector('#result')
+  const displayCurrentPlayer = document.querySelector('#current-player')
+  const resetBtn = document.querySelector('#reset')
+  const alertMsg = document.querySelector('.nope')
 
-  let currentPlayer = 1;
+  let currentPlayer = 1
 
   for (let i = 0; i < squares.length; i++) {
     (function(i) {
@@ -26,23 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[i].onclick = function() {
         if(squares[i + 7].classList.contains('taken')) {
           if (squares[i].classList.contains('taken')) {
-            alert('You cannot go here!')
+            alertMsg.textContent = 'You cannot go here'
           }
           else if (currentPlayer === 1) {
-            squares[i].classList.add('taken');
-            squares[i].classList.add('player-one');
+            squares[i].classList.add('taken')
+            squares[i].classList.add('player-one')
+            alertMsg.textContent = ''
 
             currentPlayer = 2;
-            displayCurrentPlayer.innerHTML = currentPlayer;
+            displayCurrentPlayer.innerHTML = currentPlayer
           } else if (currentPlayer === 2) {
-            squares[i].classList.add('taken');
-            squares[i].classList.add('player-two');
+            squares[i].classList.add('taken')
+            squares[i].classList.add('player-two')
+            alertMsg.textContent = ''
 
             currentPlayer = 1;
-            displayCurrentPlayer.innerHTML = currentPlayer;
+            displayCurrentPlayer.innerHTML = currentPlayer
           } else {
             //if the square below your current isn't taken, you cannot choose it
-            alert('You cannot go here!')
+            alertMsg.textContent = 'You cannot go here'
           }
         }
       }
@@ -87,6 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  squares.forEach(square => square.addEventListener('click', checkBoard));
+  squares.forEach(square => square.addEventListener('click', checkBoard))
   resetBtn.addEventListener('click', () => {window.location.reload(true)})
 })
